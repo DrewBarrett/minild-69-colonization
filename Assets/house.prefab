@@ -34,7 +34,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &113962
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,8 +236,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.2, y: 0.75, z: 0}
-  m_LocalScale: {x: 0.8961983, y: 1.1850518, z: 1.037705}
+  m_LocalPosition: {x: 20.2, y: 0.93, z: 0}
+  m_LocalScale: {x: 1.15, y: 0.89, z: 1.037705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 475398}
@@ -439,7 +439,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Upgrade Colony
+  m_Text: Upgrade Colony (0 Coins)
 --- !u!114 &11416624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -568,6 +568,8 @@ MonoBehaviour:
   - {fileID: 148008}
   - {fileID: 146848}
   upgradeBtn: {fileID: 11453404}
+  LeftBase: {fileID: 0}
+  RightBase: {fileID: 0}
   playerOwned: 0
 --- !u!114 &11477272
 MonoBehaviour:
@@ -624,7 +626,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e15b2b863b3d9a24a90857af85980967, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5441177, g: 0.5441177, b: 0.5441177, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &21220168
@@ -744,7 +746,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 92e6cda8ac7981d489304d4acb5824fa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.2794118, g: 0.2794118, b: 0.2794118, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &21265262
@@ -846,7 +848,7 @@ RectTransform:
   m_GameObject: {fileID: 192378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.5359817, y: 0.1275188, z: 1.4573436}
+  m_LocalScale: {x: 2.71, y: 0.1275188, z: 1.4573436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 22467342}
@@ -873,8 +875,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2.1}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -0.3, y: 2.1}
+  m_SizeDelta: {x: 272.02, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22481356
 RectTransform:
@@ -889,10 +891,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22467342}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 211.26, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &100100000
 Prefab:

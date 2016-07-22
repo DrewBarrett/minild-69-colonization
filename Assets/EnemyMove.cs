@@ -8,7 +8,9 @@ public class EnemyMove : MonoBehaviour
     GameObject attackTarget;
     bool shouldMove;
     public float attackcooldown;
-    public float speedModifier = 3f;
+    float speedModifier = 3f;
+    bool sprinting = false;
+    float sprintSpeedModifier = 6f;
     float cooldownTimer;
     List<Collider2D> currentTriggers;
     // Use this for initialization
@@ -83,12 +85,22 @@ public class EnemyMove : MonoBehaviour
         }*/
 
     }
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void SetSprinting(bool sprint)
     {
-
-
+        if (sprint == sprinting)
+        {
+            return;
+        }
+        sprinting = sprint;
+        if (sprinting)
+        {
+            speedModifier *= 2;
+        }
+        else
+        {
+            speedModifier *= .5f;
+        }
     }
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && !GetComponent<Health>().dead)

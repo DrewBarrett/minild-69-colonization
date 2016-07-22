@@ -9,11 +9,13 @@ public class GameManager : MonoBehaviour {
     int coins;
     bool countering = false;
     float counterColorMod = 1f;
+    float counterTimer;
     public GameObject coinTxt;
     public GameObject counterAttackTxt;
+    public GameObject basePrefab;
     List<GameObject> Bases;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         counterAttackTxt.SetActive(false);
         Bases = new List<GameObject>();
         GameObject[] gos = GameObject.FindGameObjectsWithTag("Base");
@@ -44,6 +46,13 @@ public class GameManager : MonoBehaviour {
             //Debug.Log(newColor.ToString());
             counterAttackTxt.GetComponent<Text>().color = newColor;
         }
+        if (counterTimer > 0)
+        {
+            counterTimer -= Time.deltaTime;
+        }else
+        {
+            CounterAttack(false);
+        }
 	}
 
     public void AddCoins(int amount)
@@ -53,21 +62,50 @@ public class GameManager : MonoBehaviour {
     }
 
 
-    public void CounterAttack()
+    public void CounterAttack(bool b)
     {
-        countering = true;
-        counterAttackTxt.SetActive(true);
+        if (b)
+        {
+            counterTimer = 30f;
+        }
+        countering = b;
+        counterAttackTxt.SetActive(b);
         Color newColor = counterAttackTxt.GetComponent<Text>().color;
         newColor.a = 0;
         counterAttackTxt.GetComponent<Text>().color = newColor;
         GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject go in gos)
         {
-            go.GetComponent<EnemyMove>().speedModifier *= 2;
+            go.GetComponent<EnemyMove>().SetSprinting(b);
         }
         foreach (GameObject go in Bases)
         {
-            go.GetComponent<Base>().RespawnSpeedOverride(true, 1f);
+            go.GetComponent<Base>().RespawnSpeedOverride(b, 1f);
         }
+    }
+    public void CounterAttack(bool b, GameObject caller)
+    {
+        if (b)
+        {
+            if (caller.GetComponent<Base>().LeftBase == null)
+            {
+                Vector3 newpos = caller.transform.position;
+                newpos.x -= 100;
+                GameObject newbase = (GameObject)Instantiate(basePrefab, newpos, Quaternion.identity);
+                newbase.GetComponent<Base>().RightBase = caller;
+                Bases.Add(newbase);
+                caller.GetComponent<Base>().LeftBase = newbase;
+            }
+            if (caller.GetComponent<Base>().RightBase == null)
+            {
+                Vector3 newpos = caller.transform.position;
+                newpos.x += 100;
+                GameObject newbase = (GameObject)Instantiate(basePrefab, newpos, Quaternion.identity);
+                newbase.GetComponent<Base>().LeftBase = newbase;
+                Bases.Add(newbase);
+                caller.GetComponent<Base>().RightBase = newbase;
+            }
+        }
+        CounterAttack(b);
     }
 }

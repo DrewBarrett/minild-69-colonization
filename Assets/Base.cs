@@ -8,6 +8,8 @@ public class Base : MonoBehaviour
     public GameObject flag;
     public GameObject[] walls;
     public Button upgradeBtn;
+    public GameObject LeftBase = null;
+    public GameObject RightBase = null;
     GameManager gm;
     public bool playerOwned = false;
     float RespawnSpeed = 5f;
@@ -16,8 +18,9 @@ public class Base : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        upgradeBtn.gameObject.SetActive(false);
         timer = RespawnSpeed;
-        OldRespawnSpeed = RespawnSpeed;
+        OldRespawnSpeed = 5f;
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         //gm.AddBase(gameObject);
     }
@@ -60,7 +63,7 @@ public class Base : MonoBehaviour
         GameObject enemy = (GameObject)Instantiate(enemyPrefab, new Vector3(gameObject.transform.position.x + 4, 1.3f), Quaternion.identity);
         if (OldRespawnSpeed != RespawnSpeed)
         {
-            enemy.GetComponent<EnemyMove>().speedModifier *= 2;
+            enemy.GetComponent<EnemyMove>().SetSprinting(true);
         }
     }
 
@@ -99,7 +102,7 @@ public class Base : MonoBehaviour
         flag.GetComponent<SpriteRenderer>().color = Color.green;
         upgradeBtn.gameObject.SetActive(true);
         playerOwned = true;
-        gm.CounterAttack();
+        gm.CounterAttack(true, gameObject);
         foreach (GameObject wall in walls)
         {
             wall.GetComponent<BoxCollider2D>().isTrigger = true;
