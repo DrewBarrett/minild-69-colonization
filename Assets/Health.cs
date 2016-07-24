@@ -5,9 +5,24 @@ public class Health : MonoBehaviour {
     protected float health;
     public float maxhealth;
     public AudioClip deathsound;
-    public bool dead = false;
-	// Use this for initialization
-	void Start () {
+    private bool dead = false;
+
+    public bool Dead
+    {
+        get
+        {
+            return dead;
+        }
+
+        set
+        {
+            dead = value;
+        }
+    }
+
+
+    // Use this for initialization
+    void Start () {
         health = maxhealth;
 	}
 	
@@ -19,7 +34,7 @@ public class Health : MonoBehaviour {
     {
         //revive
         health = maxhealth;
-        dead = false;
+        Dead = false;
     }
     virtual public void AddHealth(float amount)
     {
@@ -34,13 +49,17 @@ public class Health : MonoBehaviour {
         health -= dmg;
         if (health <= 0)
         {
-            Die();
+            Die(true);
         }
     }
-    virtual protected void Die()
+    virtual protected void Die(bool die)
     {
-        dead = true;
-        GetComponent<AudioSource>().PlayOneShot(deathsound);
-        GetComponent<BoxCollider2D>().isTrigger = true;
+        Dead = die;
+        if (die)
+        {
+            GetComponent<AudioSource>().PlayOneShot(deathsound);
+        }
+        
+        //GetComponent<BoxCollider2D>().isTrigger = true;
     }
 }

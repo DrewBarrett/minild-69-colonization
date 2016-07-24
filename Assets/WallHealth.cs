@@ -14,6 +14,7 @@ public class WallHealth : Health
         {
             if (cooldownTimer <= 0)
             {
+                Die(false);//reenable walliness
                 AddHealth(repairAmount);
                 cooldownTimer = repairCooldown;
             }
@@ -52,5 +53,14 @@ public class WallHealth : Health
         Color newcolor = red;
         //Debug.Log(newcolor.ToString() + " "  + red + ", " + percent);
         GetComponent<SpriteRenderer>().color = newcolor;
+    }
+    protected override void Die(bool die)
+    {
+        base.Die(die);
+        if (!GetComponentInParent<Base>().playerOwned)
+        {
+            gameObject.SetActive(!die);
+        }
+        
     }
 }

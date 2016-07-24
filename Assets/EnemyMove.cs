@@ -24,7 +24,7 @@ public class EnemyMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GetComponent<Health>().dead)
+        if (GetComponent<Health>().Dead)
         {
             return;
         }
@@ -33,7 +33,7 @@ public class EnemyMove : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             return;
         }
-        if (GetComponent<Health>().dead)
+        if (GetComponent<Health>().Dead)
         {
             return;
         }
@@ -44,7 +44,7 @@ public class EnemyMove : MonoBehaviour
 
     void Update()
     {
-        if (GetComponent<Health>().dead)
+        if (GetComponent<Health>().Dead)
         {
             return;
         }
@@ -62,7 +62,7 @@ public class EnemyMove : MonoBehaviour
             return;
         }
         cooldownTimer = attackcooldown;
-        if (attackTarget == null || attackTarget.GetComponent<Health>().dead)
+        if (attackTarget == null || attackTarget.GetComponent<Health>().Dead)
         {
             
             //setShouldMove(true);
@@ -103,7 +103,7 @@ public class EnemyMove : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && !GetComponent<Health>().dead)
+        if (collision.gameObject.tag == "Player" && !GetComponent<Health>().Dead)
         {
             player.GetComponent<player>().Die();
             return;
@@ -117,7 +117,7 @@ public class EnemyMove : MonoBehaviour
         }
         if (collision.gameObject.tag == "Wall")
         {
-            if (collision.GetComponent<Health>().dead || collision.GetComponentInParent<Base>().playerOwned == false)
+            if (collision.GetComponent<Health>().Dead || collision.GetComponentInParent<Base>().playerOwned == false)
             {
                 
                 return;
@@ -131,7 +131,7 @@ public class EnemyMove : MonoBehaviour
     public void OnCollisionExit2D(Collision2D collision)
     {
         Debug.Log("collision exit");
-        if (GetComponent<Health>().dead)
+        if (GetComponent<Health>().Dead)
         {
             return;
         }
@@ -140,7 +140,7 @@ public class EnemyMove : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (GetComponent<Health>().dead)
+        if (GetComponent<Health>().Dead)
         {
             return;
         }
@@ -148,11 +148,11 @@ public class EnemyMove : MonoBehaviour
         int surroundNoMoveCount = 0;
         foreach (Collider2D col in currentTriggers)
         {
-            if (col.gameObject.tag == "Wall" && col.GetComponent<Health>().dead == false)
+            if (col.gameObject.tag == "Wall" && col.GetComponent<Health>().Dead == false)
             {
                 return;
             }
-            if (col.gameObject.tag == "Enemy" && col.GetComponent<Health>().dead == false && col.GetComponent<EnemyMove>().shouldMove == false)
+            if (col.gameObject.tag == "Enemy" && col.GetComponent<Health>().Dead == false && col.GetComponent<EnemyMove>().shouldMove == false)
             {
                 surroundNoMoveCount++;
             }
@@ -162,7 +162,7 @@ public class EnemyMove : MonoBehaviour
             Debug.Log("We are colliding with 2 non moving and alive enemies so we will not start moving under any circumstance");
             return;
         }
-        if (collision.gameObject.tag == "Enemy" && (collision.GetComponent<EnemyMove>().shouldMove || collision.GetComponent<EnemyHealth>().dead))
+        if (collision.gameObject.tag == "Enemy" && (collision.GetComponent<EnemyMove>().shouldMove || collision.GetComponent<EnemyHealth>().Dead))
         {
             Debug.Log("We just exited collision with a dead or now moving enemy so we should move too");
             setShouldMove(true);
@@ -173,7 +173,7 @@ public class EnemyMove : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Wall" && collision.GetComponent<Health>().dead == true && shouldMove == false && attackTarget != null)
+        if (collision.gameObject.tag == "Wall" && collision.GetComponent<Health>().Dead == true && shouldMove == false && attackTarget != null)
         {
             attackTarget = null;
             setShouldMove(true);

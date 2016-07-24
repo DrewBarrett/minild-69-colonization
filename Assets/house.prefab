@@ -189,7 +189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &416138
 Transform:
   m_ObjectHideFlags: 1
@@ -408,7 +408,7 @@ MonoBehaviour:
   deathsound: {fileID: 0}
   dead: 0
   shouldRepair: 1
-  repairCooldown: 2
+  repairCooldown: 0.5
   repairAmount: 1
 --- !u!114 &11408354
 MonoBehaviour:
@@ -474,7 +474,7 @@ MonoBehaviour:
   deathsound: {fileID: 0}
   dead: 0
   shouldRepair: 1
-  repairCooldown: 2
+  repairCooldown: 0.5
   repairAmount: 1
 --- !u!114 &11447382
 MonoBehaviour:
@@ -573,7 +573,6 @@ MonoBehaviour:
   - {fileID: 158626}
   - {fileID: 148008}
   - {fileID: 146848}
-  upgradeBtn: {fileID: 11453404}
   LeftBase: {fileID: 0}
   RightBase: {fileID: 0}
   playerOwned: 0
@@ -610,7 +609,7 @@ MonoBehaviour:
   deathsound: {fileID: 0}
   dead: 0
   shouldRepair: 1
-  repairCooldown: 2
+  repairCooldown: 0.5
   repairAmount: 1
 --- !u!212 &21213686
 SpriteRenderer:

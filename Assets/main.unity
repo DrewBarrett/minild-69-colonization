@@ -156,7 +156,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 49904566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2184185, y: 4.8405056, z: 0}
+  m_LocalPosition: {x: 9000, y: 4.8405056, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -709,18 +709,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 21255972, guid: db60ab768c6861a4d8d31e428744005c, type: 2}
-      propertyPath: m_Color.g
-      value: 0.27205884
-      objectReference: {fileID: 0}
-    - target: {fileID: 21255972, guid: db60ab768c6861a4d8d31e428744005c, type: 2}
-      propertyPath: m_Color.b
-      value: 0.27205884
-      objectReference: {fileID: 0}
-    - target: {fileID: 21255972, guid: db60ab768c6861a4d8d31e428744005c, type: 2}
-      propertyPath: m_Color.r
-      value: 0.27205884
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db60ab768c6861a4d8d31e428744005c, type: 2}
   m_IsPrefabParent: 0
@@ -767,6 +755,10 @@ Prefab:
       propertyPath: deadtext
       value: 
       objectReference: {fileID: 568562381}
+    - target: {fileID: 12054108, guid: 5141dfeadbf0b1748a18540e52925509, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5141dfeadbf0b1748a18540e52925509, type: 2}
   m_IsPrefabParent: 0

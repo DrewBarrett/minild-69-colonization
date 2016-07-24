@@ -7,7 +7,6 @@ public class Base : MonoBehaviour
     public GameObject enemyPrefab;
     public GameObject flag;
     public GameObject[] walls;
-    public Button upgradeBtn;
     public GameObject LeftBase = null;
     public GameObject RightBase = null;
     GameManager gm;
@@ -20,7 +19,6 @@ public class Base : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        upgradeBtn.gameObject.SetActive(false);
         timer = RespawnSpeed;
         OldRespawnSpeed = 5f;
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
@@ -99,10 +97,10 @@ public class Base : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log(collision.gameObject.tag);
+        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "Enemy")
         {
-            if (collision.GetComponent<Health>().dead)
+            if (collision.GetComponent<Health>().Dead)
             {
                 return;//dead people cant capture bases
             }
@@ -113,7 +111,7 @@ public class Base : MonoBehaviour
         GameObject[] go = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in go)//TODO: Holy fuck optimize this shit whose idea was this anyways fuck me shit
         {
-            if (!enemy.GetComponent<Health>().dead && Mathf.Abs(enemy.transform.position.x - gameObject.transform.position.x) < 30)
+            if (!enemy.GetComponent<Health>().Dead && Mathf.Abs(enemy.transform.position.x - gameObject.transform.position.x) < 30)
             {
                 //we need to clear the area
                 return;
@@ -126,11 +124,12 @@ public class Base : MonoBehaviour
         }
         //capture base
         flag.GetComponent<SpriteRenderer>().color = Color.green;
-        upgradeBtn.gameObject.SetActive(true);
         playerOwned = true;
         gm.CounterAttack(true, gameObject);
         foreach (GameObject wall in walls)
         {
+            wall.SetActive(true);
+            Debug.Log("We are making the walls triggers because we have captured the base");
             wall.GetComponent<BoxCollider2D>().isTrigger = true;
             //wall.GetComponent<Health>().SetHealth();
         }
