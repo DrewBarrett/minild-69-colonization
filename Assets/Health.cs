@@ -21,6 +21,14 @@ public class Health : MonoBehaviour {
         health = maxhealth;
         dead = false;
     }
+    virtual public void AddHealth(float amount)
+    {
+        health += amount;
+        if (health > maxhealth)
+        {
+            health = maxhealth;
+        }
+    }
     virtual public void TakeDamage(int dmg)
     {
         health -= dmg;

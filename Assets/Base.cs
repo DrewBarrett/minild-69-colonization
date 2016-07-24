@@ -15,6 +15,8 @@ public class Base : MonoBehaviour
     float RespawnSpeed = 5f;
     float OldRespawnSpeed;
     float timer;
+    public float repairDelay = 10f;
+    float attackedTimer = 0f;
     // Use this for initialization
     void Start()
     {
@@ -37,8 +39,27 @@ public class Base : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
+        if (attackedTimer <= 0)
+        {
+            //TODO: Optimize this shit jeezus
+            foreach (GameObject wall in walls)
+            {
+                wall.GetComponent<WallHealth>().shouldRepair = true;
+            }
+        }
+        else
+        {
+            attackedTimer -= Time.deltaTime;
+        }
     }
-
+    public void TakeDamage()
+    {
+        attackedTimer = repairDelay;
+        foreach (GameObject wall in walls)
+        {
+            wall.GetComponent<WallHealth>().shouldRepair = false;
+        }
+    }
     public void RespawnSpeedOverride(bool shouldOverride, float newSpeed)
     {
         if (shouldOverride)
@@ -85,18 +106,23 @@ public class Base : MonoBehaviour
             {
                 return;//dead people cant capture bases
             }
-            playerOwned = false;
+            playerOwned = false;//TODO: Call function
             flag.GetComponent<SpriteRenderer>().color = Color.red;
             return;
         }
         GameObject[] go = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in go)
+        foreach (GameObject enemy in go)//TODO: Holy fuck optimize this shit whose idea was this anyways fuck me shit
         {
             if (!enemy.GetComponent<Health>().dead && Mathf.Abs(enemy.transform.position.x - gameObject.transform.position.x) < 30)
             {
                 //we need to clear the area
                 return;
             }
+        }
+        if (playerOwned)
+        {
+            return;
+            //no need to capture base
         }
         //capture base
         flag.GetComponent<SpriteRenderer>().color = Color.green;
@@ -106,7 +132,7 @@ public class Base : MonoBehaviour
         foreach (GameObject wall in walls)
         {
             wall.GetComponent<BoxCollider2D>().isTrigger = true;
-            wall.GetComponent<Health>().SetHealth();
+            //wall.GetComponent<Health>().SetHealth();
         }
     }
 }
