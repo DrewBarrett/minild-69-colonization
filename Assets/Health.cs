@@ -22,14 +22,10 @@ public class Health : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    virtual protected void Start () {
         health = maxhealth;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	    
-	}
     virtual public void SetHealth()
     {
         //revive

@@ -3,13 +3,27 @@ using System.Collections;
 
 public class WallHealth : Health
 {
+    public bool built = true;
     public bool shouldRepair = true;
     public float repairCooldown = 2f;
     public float repairAmount = 1f;
     float cooldownTimer = 0f;
 
+    override protected void Start()
+    {
+        base.Start();
+        if (!built)
+        {
+            Dead = true;
+        }
+    }
+
     public void Update()
     {
+        if (!built)
+        {
+            return;
+        }
         if (shouldRepair)
         {
             if (cooldownTimer <= 0)
@@ -61,6 +75,6 @@ public class WallHealth : Health
         {
             gameObject.SetActive(!die);
         }
-        
+
     }
 }
