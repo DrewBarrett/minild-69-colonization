@@ -14,8 +14,10 @@ public class GameManager : MonoBehaviour {
     public GameObject counterAttackTxt;
     public GameObject basePrefab;
     List<GameObject> Bases;
+    Color oldcolor;
     // Use this for initialization
     void Start () {
+        oldcolor = coinTxt.GetComponent<Text>().color;
         counterAttackTxt.SetActive(false);
         Bases = new List<GameObject>();
         GameObject[] gos = GameObject.FindGameObjectsWithTag("Base");
@@ -74,12 +76,19 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
-            //TODO: Make coins flash red and play error noise
+            StopCoroutine(TempChangeColor());
+            StartCoroutine(TempChangeColor());
             return false;
         }
     }
 
-
+    IEnumerator TempChangeColor()
+    {
+        //TODO Play buzzer noise here
+        coinTxt.GetComponent<Text>().color = Color.red;
+        yield return new WaitForSeconds(2f);
+        coinTxt.GetComponent<Text>().color = oldcolor;
+    }
     public void CounterAttack(bool b)
     {
         if (b)
