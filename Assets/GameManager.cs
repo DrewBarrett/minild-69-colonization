@@ -11,20 +11,27 @@ public class GameManager : MonoBehaviour {
     float counterColorMod = 1f;
     float counterTimer;
     public GameObject coinTxt;
+    public GameObject nightTxt;
     public GameObject counterAttackTxt;
     public GameObject basePrefab;
     List<GameObject> Bases;
     Color oldcolor;
+    float dayDuration = 60f;
+    float nightDuration = 60f;
+    float dayNightTimer;
+    bool night = false;
     // Use this for initialization
     void Start () {
         oldcolor = coinTxt.GetComponent<Text>().color;
         counterAttackTxt.SetActive(false);
+        nightTxt.SetActive(false);
         Bases = new List<GameObject>();
         GameObject[] gos = GameObject.FindGameObjectsWithTag("Base");
         foreach (GameObject go in gos)
         {
             Bases.Add(go);
         }
+        dayNightTimer = dayDuration;
 	}
 	
 	// Update is called once per frame
@@ -54,6 +61,11 @@ public class GameManager : MonoBehaviour {
         }else
         {
             CounterAttack(false);
+        }
+        if (dayNightTimer <= 0)
+        {
+            night = !night;
+            SetNight(night);
         }
 	}
 
