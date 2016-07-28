@@ -66,11 +66,11 @@ GameObject:
   - 114: {fileID: 11457686}
   m_Layer: 0
   m_Name: buildableWall (1)
-  m_TagString: Wall
+  m_TagString: Buildable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &120820
 GameObject:
   m_ObjectHideFlags: 1
@@ -121,7 +121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &137074
 GameObject:
   m_ObjectHideFlags: 1
@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &138980
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ GameObject:
   - 114: {fileID: 11407680}
   m_Layer: 0
   m_Name: buildableWall
-  m_TagString: Wall
+  m_TagString: Buildable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -715,7 +715,7 @@ MonoBehaviour:
   - {fileID: 113962}
   - {fileID: 158626}
   - {fileID: 147178}
-  - {fileID: 0}
+  - {fileID: 114658}
   LeftBase: {fileID: 0}
   RightBase: {fileID: 0}
   playerOwned: 0

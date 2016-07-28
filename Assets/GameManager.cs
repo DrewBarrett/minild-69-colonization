@@ -58,7 +58,25 @@ public class GameManager : MonoBehaviour {
     public void AddCoins(int amount)
     {
         coins += amount;
+        UpdateText();
+    }
+    private void UpdateText()
+    {
         coinTxt.GetComponent<Text>().text = "Coins: " + coins;
+    }
+    public bool SpendMoney(int amount)
+    {
+        if (amount <= coins)
+        {
+            coins -= amount;
+            UpdateText();
+            return true;
+        }
+        else
+        {
+            //TODO: Make coins flash red and play error noise
+            return false;
+        }
     }
 
 

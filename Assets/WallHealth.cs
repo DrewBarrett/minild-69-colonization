@@ -7,6 +7,7 @@ public class WallHealth : Health
     public bool shouldRepair = true;
     public float repairCooldown = 2f;
     public float repairAmount = 1f;
+    int buildCost = 10;
     float cooldownTimer = 0f;
 
     override protected void Start()
@@ -17,6 +18,7 @@ public class WallHealth : Health
             Dead = true;
         }
     }
+
 
     public void Update()
     {
@@ -42,7 +44,17 @@ public class WallHealth : Health
             cooldownTimer = repairCooldown;
         }
     }
-
+    public override void Build()
+    {
+        built = true;
+        gameObject.tag = "Wall";
+        SetHealth();
+        GetComponentInChildren<Canvas>(true).gameObject.SetActive(false);
+    }
+    public override int BuildCost()
+    {
+        return buildCost;
+    }
     public override void SetHealth()
     {
         base.SetHealth();

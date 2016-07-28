@@ -9,10 +9,20 @@ public class player : MonoBehaviour
     public Text deadtext;
     public int distance;
     bool dead = false;
+    GameObject target = null;
     // Use this for initialization
     void Start()
     {
 
+    }
+
+    public void BuildTarget()
+    {
+        if (GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().SpendMoney(target.GetComponent<Health>().BuildCost()))
+        {
+            target.GetComponent<Health>().Build();
+        }
+        
     }
 
     // Update is called once per frame
@@ -25,6 +35,13 @@ public class player : MonoBehaviour
         else
         {
             bulletexit.GetComponent<LineRenderer>().enabled = false;
+        }
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (target)
+            {
+                BuildTarget();
+            }
         }
     }
     public void Die()
@@ -42,6 +59,25 @@ public class player : MonoBehaviour
         {
             GameObject.Destroy(collision.gameObject.transform.parent.gameObject);//now thats a mouthfull
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().AddCoins(1);
+        }
+        if (collision.gameObject.tag == "Buildable")
+        {
+            target = collision.gameObject;
+            target.GetComponentInChildren<Canvas>(true).gameObject.SetActive(true);
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Buildable")
+        {
+            //Debug.Log("Buildable Object Exited");
+            if (target != null)
+            {
+                target.GetComponentInChildren<Canvas>(true).gameObject.SetActive(false);
+            }
+            target = null;
+
         }
     }
 

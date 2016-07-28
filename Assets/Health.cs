@@ -25,7 +25,15 @@ public class Health : MonoBehaviour {
     virtual protected void Start () {
         health = maxhealth;
 	}
-	
+    virtual public void Build()
+    {
+        Debug.LogError("This object cannot be built! Or you called base.build...");
+    }
+    virtual public int BuildCost()
+    {
+        Debug.LogError("This object does not have a build cost! Or you called base.buildcost...");
+        return -1;
+    }
     virtual public void SetHealth()
     {
         //revive
