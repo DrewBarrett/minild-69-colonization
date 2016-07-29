@@ -127,6 +127,7 @@ public class Base : MonoBehaviour
             //no need to capture base
         }
         //capture base
+
         flag.GetComponent<SpriteRenderer>().color = Color.green;
         playerOwned = true;
         gm.CounterAttack(true, gameObject);
@@ -136,6 +137,13 @@ public class Base : MonoBehaviour
             Debug.Log("We are making the walls triggers because we have captured the base");
             wall.GetComponent<BoxCollider2D>().isTrigger = true;
             //wall.GetComponent<Health>().SetHealth();
+        }
+    }
+    void CaptureBase(bool playerCaptured)
+    {
+        if (playerCaptured)
+        {
+
         }
     }
 }

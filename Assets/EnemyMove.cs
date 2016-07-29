@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class EnemyMove : MonoBehaviour
 {
     public GameObject rayCastStart;
+    public int damageAmount = 5;
     GameObject player;
     GameObject attackTarget;
     bool shouldMove;
@@ -16,6 +17,9 @@ public class EnemyMove : MonoBehaviour
     List<Collider2D> currentTriggers;
     GameManager gm;
     bool isJumping;
+    bool shouldReverse = false;
+    float reverseDistance = 3f;
+    float reverseRemaining;
     // Use this for initialization
     void Start()
     {
@@ -35,11 +39,27 @@ public class EnemyMove : MonoBehaviour
         }
         if (!shouldMove)
         {
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            if (gameObject.GetComponent<Rigidbody2D>().isKinematic)
+            {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            }
+            else
+            {
+                gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+            }
             return;
         }
-        if (GetComponent<Health>().Dead)
+        if (shouldReverse)
         {
+            if (reverseRemaining <= 0)
+            {
+                shouldReverse = false;
+            }
+            else
+            {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(val * speedModifier * .1f, 0);
+                reverseRemaining -= Time.fixedDeltaTime;
+            }
             return;
         }
         if (!isJumping)
@@ -56,7 +76,7 @@ public class EnemyMove : MonoBehaviour
         foreach (RaycastHit2D hit in hits)
         {
             //Debug.Log(hit.ToString());
-            if (hit.transform.gameObject.tag == "Player")
+            if (hit.transform.gameObject.tag == "Player" || (hit.transform.gameObject.tag == "Wall" && (!hit.transform.gameObject.GetComponent<Health>().Dead && !hit.transform.gameObject.GetComponentInParent<Base>().playerOwned == false)))
             {
                 
                 Jump(val * -1);
@@ -76,7 +96,11 @@ public class EnemyMove : MonoBehaviour
             Attack();
         }
     }
-
+    void SetShouldReverse()
+    {
+        shouldReverse = true;
+        reverseRemaining = reverseDistance;
+    }
     void Attack()
     {
         if (cooldownTimer > 0)
@@ -136,12 +160,17 @@ public class EnemyMove : MonoBehaviour
 
     void Jump(float dir)
     {
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         isJumping = true;
         GetComponent<Rigidbody2D>().isKinematic = false;
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(7 * dir, 5), ForceMode2D.Impulse);
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(7 * dir, 3), ForceMode2D.Impulse);
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        if (GetComponent<Health>().Dead)
+        {
+            return;
+        }
         if (collision.gameObject.tag == "Player" && !GetComponent<Health>().Dead)
         {
 
@@ -152,12 +181,12 @@ public class EnemyMove : MonoBehaviour
             return;
         }
 
-        if (collision.gameObject.tag == "Enemy" && collision.GetComponent<EnemyMove>().shouldMove == false)
+        /*if (collision.gameObject.tag == "Enemy" && collision.GetComponent<EnemyMove>().shouldMove == false)
         {
             currentTriggers.Add(collision);
             setShouldMove(false);
             return;
-        }
+        }*/
         if (collision.gameObject.tag == "Wall")
         {
             if (collision.GetComponent<Health>().Dead || collision.GetComponentInParent<Base>().playerOwned == false)
@@ -167,12 +196,16 @@ public class EnemyMove : MonoBehaviour
             }
             currentTriggers.Add(collision);
             setShouldMove(false);
-            attackTarget = collision.gameObject;
+            //attackTarget = collision.gameObject;
+            collision.gameObject.GetComponent<Health>().TakeDamage(damageAmount);
+            SetShouldReverse();
         }
         if (collision.gameObject.tag == "Floor")
         {
+
             isJumping = false;
             GetComponent<Rigidbody2D>().isKinematic = true;
+            shouldMove = true;
         }
     }
 
@@ -216,16 +249,16 @@ public class EnemyMove : MonoBehaviour
             Debug.Log("We are colliding with 2 non moving and alive enemies so we will not start moving under any circumstance");
             return;
         }
-        if (collision.gameObject.tag == "Enemy" && (collision.GetComponent<EnemyMove>().shouldMove || collision.GetComponent<EnemyHealth>().Dead))
+        /*if (collision.gameObject.tag == "Enemy" && (collision.GetComponent<EnemyMove>().shouldMove || collision.GetComponent<EnemyHealth>().Dead))
         {
             Debug.Log("We just exited collision with a dead or now moving enemy so we should move too");
             setShouldMove(true);
             return;
-        }
+        }*/
 
     }
 
-    public void OnTriggerStay2D(Collider2D collision)
+    /*public void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Wall" && collision.GetComponent<Health>().Dead == true && shouldMove == false && attackTarget != null)
         {
@@ -233,5 +266,5 @@ public class EnemyMove : MonoBehaviour
             setShouldMove(true);
             Debug.Log("The wall is dead so we will move now");
         }
-    }
+    }*/
 }
