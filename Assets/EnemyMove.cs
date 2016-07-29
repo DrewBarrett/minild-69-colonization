@@ -5,11 +5,13 @@ using System.Collections.Generic;
 public class EnemyMove : MonoBehaviour
 {
     public GameObject rayCastStart;
-    public int damageAmount = 5;
+    public int damageAmount = 3;
     GameObject player;
     GameObject attackTarget;
     bool shouldMove;
     public float attackcooldown;
+    public float jumpCooldown = 2f;
+    float jumpTimer;
     float speedModifier = 3f;
     bool sprinting = false;
     float sprintSpeedModifier = 6f;
@@ -18,7 +20,7 @@ public class EnemyMove : MonoBehaviour
     GameManager gm;
     bool isJumping;
     bool shouldReverse = false;
-    float reverseDistance = 3f;
+    float reverseDistance = 4f;
     float reverseRemaining;
     // Use this for initialization
     void Start()
@@ -51,13 +53,15 @@ public class EnemyMove : MonoBehaviour
         }
         if (shouldReverse)
         {
-            if (reverseRemaining <= 0)
+            if (reverseRemaining <= 0 && jumpTimer <= 0)
             {
+                
                 shouldReverse = false;
             }
             else
             {
-                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(val * speedModifier * .1f, 0);
+                jumpTimer -= Time.fixedDeltaTime;
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(val * speedModifier * .2f, 0);
                 reverseRemaining -= Time.fixedDeltaTime;
             }
             return;
@@ -68,8 +72,10 @@ public class EnemyMove : MonoBehaviour
             //transform.Translate(new Vector3(.1f * val * -1, 0));
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(val * -1 * speedModifier, 0);
         }
-        if (isJumping)
+        if (isJumping || jumpTimer > 0)
         {
+            jumpTimer -= Time.fixedDeltaTime;
+
             return;
         }
         RaycastHit2D[] hits = Physics2D.RaycastAll(rayCastStart.transform.position, new Vector2(val * -1, 0), 5f);
@@ -160,6 +166,7 @@ public class EnemyMove : MonoBehaviour
 
     void Jump(float dir)
     {
+        jumpTimer = jumpCooldown;
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         isJumping = true;
         GetComponent<Rigidbody2D>().isKinematic = false;

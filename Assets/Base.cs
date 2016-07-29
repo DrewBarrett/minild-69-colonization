@@ -31,7 +31,7 @@ public class Base : MonoBehaviour
         if (!playerOwned && timer <= 0)
         {
             SpawnEnemy();
-            timer = RespawnSpeed + Random.Range(0f,3f);
+            timer = RespawnSpeed + Random.Range(0f, 3f);
         }
         else
         {
@@ -108,18 +108,12 @@ public class Base : MonoBehaviour
             {
                 return;//dead people cant capture bases
             }
-            playerOwned = false;//TODO: Call function
-            flag.GetComponent<SpriteRenderer>().color = Color.red;
+            CaptureBase(false);//decapture the base
             return;
         }
-        GameObject[] go = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in go)//TODO: Holy fuck optimize this shit whose idea was this anyways fuck me shit
+        if (EnemiesNearby())
         {
-            if (!enemy.GetComponent<Health>().Dead && Mathf.Abs(enemy.transform.position.x - gameObject.transform.position.x) < 30)
-            {
-                //we need to clear the area
-                return;
-            }
+            return;//we need to clear the area
         }
         if (playerOwned)
         {
@@ -127,23 +121,59 @@ public class Base : MonoBehaviour
             //no need to capture base
         }
         //capture base
-
-        flag.GetComponent<SpriteRenderer>().color = Color.green;
-        playerOwned = true;
-        gm.CounterAttack(true, gameObject);
-        foreach (GameObject wall in walls)
-        {
-            wall.SetActive(true);
-            Debug.Log("We are making the walls triggers because we have captured the base");
-            wall.GetComponent<BoxCollider2D>().isTrigger = true;
-            //wall.GetComponent<Health>().SetHealth();
-        }
+        CaptureBase(true);
     }
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && !playerOwned)
+        {
+            if (!EnemiesNearby())
+            {
+                CaptureBase(true);
+            }
+            else
+            {
+                return;
+            }
+        }
+        
+        //TODO: Check if player is inside
+    }
+
+    bool EnemiesNearby()
+    {
+        GameObject[] go = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in go)//TODO: Holy fuck optimize this shit whose idea was this anyways fuck me shit
+        {
+            if (!enemy.GetComponent<Health>().Dead && Mathf.Abs(enemy.transform.position.x - gameObject.transform.position.x) < 30)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     void CaptureBase(bool playerCaptured)
     {
+        foreach (GameObject wall in walls)
+        {
+            wall.GetComponent<BoxCollider2D>().isTrigger = playerCaptured;
+            wall.SetActive(true);
+            if (wall.gameObject.tag == "Buildable")
+            {
+                wall.SetActive(playerCaptured);
+                //Debug.Log("We are making the walls triggers because we have captured the base");
+                
+                //wall.GetComponent<Health>().SetHealth();
+            }
+
+        }
+        playerOwned = playerCaptured;
         if (playerCaptured)
         {
-
+            flag.GetComponent<SpriteRenderer>().color = Color.green;
+            gm.CounterAttack(true, gameObject);
         }
     }
 }

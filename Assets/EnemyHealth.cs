@@ -11,5 +11,6 @@ public class EnemyHealth : Health {
         GetComponent<Rigidbody2D>().isKinematic = !die;
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
         Instantiate(dropPrefab, new Vector3(transform.position.x, 0), Quaternion.identity);
+        Destroy(gameObject, 10f);
     }
 }
