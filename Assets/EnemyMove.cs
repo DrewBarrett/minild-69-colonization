@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class EnemyMove : MonoBehaviour
 {
+    public GameObject rayCastStart;
     GameObject player;
     GameObject attackTarget;
     bool shouldMove;
@@ -14,6 +15,7 @@ public class EnemyMove : MonoBehaviour
     float cooldownTimer;
     List<Collider2D> currentTriggers;
     GameManager gm;
+    bool isJumping;
     // Use this for initialization
     void Start()
     {
@@ -26,6 +28,7 @@ public class EnemyMove : MonoBehaviour
 
     void FixedUpdate()
     {
+        float val = Mathf.Sign(transform.position.x - player.transform.position.x);
         if (GetComponent<Health>().Dead)
         {
             return;
@@ -39,9 +42,27 @@ public class EnemyMove : MonoBehaviour
         {
             return;
         }
-        float val = Mathf.Sign(transform.position.x - player.transform.position.x);
-        //transform.Translate(new Vector3(.1f * val * -1, 0));
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(val * -1 * speedModifier, 0);
+        if (!isJumping)
+        {
+            
+            //transform.Translate(new Vector3(.1f * val * -1, 0));
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(val * -1 * speedModifier, 0);
+        }
+        if (isJumping)
+        {
+            return;
+        }
+        RaycastHit2D[] hits = Physics2D.RaycastAll(rayCastStart.transform.position, new Vector2(val * -1, 0), 5f);
+        foreach (RaycastHit2D hit in hits)
+        {
+            //Debug.Log(hit.ToString());
+            if (hit.transform.gameObject.tag == "Player")
+            {
+                
+                Jump(val * -1);
+                break;
+            }
+        }
     }
 
     void Update()
@@ -112,14 +133,25 @@ public class EnemyMove : MonoBehaviour
             speedModifier *= .5f;
         }
     }
+
+    void Jump(float dir)
+    {
+        isJumping = true;
+        GetComponent<Rigidbody2D>().isKinematic = false;
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(7 * dir, 5), ForceMode2D.Impulse);
+    }
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && !GetComponent<Health>().Dead)
         {
+
+            //GetComponent<Rigidbody2D>().velocity = ( transform.position - collision.transform.position);
             player.GetComponent<player>().Die();
+            
+
             return;
         }
-        
+
         if (collision.gameObject.tag == "Enemy" && collision.GetComponent<EnemyMove>().shouldMove == false)
         {
             currentTriggers.Add(collision);
@@ -130,13 +162,24 @@ public class EnemyMove : MonoBehaviour
         {
             if (collision.GetComponent<Health>().Dead || collision.GetComponentInParent<Base>().playerOwned == false)
             {
-                
+
                 return;
             }
             currentTriggers.Add(collision);
             setShouldMove(false);
             attackTarget = collision.gameObject;
         }
+        if (collision.gameObject.tag == "Floor")
+        {
+            isJumping = false;
+            GetComponent<Rigidbody2D>().isKinematic = true;
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (GetComponent<Health>().Dead)
+            return;
     }
 
     public void OnCollisionExit2D(Collision2D collision)
@@ -168,7 +211,7 @@ public class EnemyMove : MonoBehaviour
                 surroundNoMoveCount++;
             }
         }
-        if (surroundNoMoveCount >=2)
+        if (surroundNoMoveCount >= 2)
         {
             Debug.Log("We are colliding with 2 non moving and alive enemies so we will not start moving under any circumstance");
             return;

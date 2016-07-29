@@ -22,6 +22,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &155972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 466914}
+  m_Layer: 0
+  m_Name: RayCastStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &403678
 Transform:
   m_ObjectHideFlags: 1
@@ -29,11 +44,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.61, y: 1.27, z: 0}
+  m_LocalPosition: {x: 7.61, y: 1.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 466914}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &466914
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.26, y: 0.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 403678}
   m_RootOrder: 0
 --- !u!50 &5077048
 Rigidbody2D:
@@ -63,7 +92,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.27465296, y: -0.20751548}
+  m_Offset: {x: -0.27465296, y: -0.33}
   serializedVersion: 2
   m_Size: {x: 0.9322078, y: 1.9846911}
 --- !u!82 &8289078
@@ -170,7 +199,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxhealth: 30
   deathsound: {fileID: 8300000, guid: 9bc02a40c8e62bb43b54509c05005860, type: 3}
-  dead: 0
   dropPrefab: {fileID: 195220, guid: b6089b611d136104a9caa996c78d0744, type: 2}
 --- !u!114 &11499096
 MonoBehaviour:
@@ -183,8 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb790acb0cafdab459cb5fe1e3f0f361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayCastStart: {fileID: 155972}
   attackcooldown: 1
-  speedModifier: 3
 --- !u!212 &21262818
 SpriteRenderer:
   m_ObjectHideFlags: 1

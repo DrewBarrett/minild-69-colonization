@@ -9,6 +9,7 @@ TagManager:
   - Pickup
   - Base
   - Buildable
+  - Floor
   layers:
   - Default
   - TransparentFX
