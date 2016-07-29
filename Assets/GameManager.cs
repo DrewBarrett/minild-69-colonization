@@ -20,6 +20,34 @@ public class GameManager : MonoBehaviour {
     float nightDuration = 60f;
     float dayNightTimer;
     bool night = false;
+    Color oldBG;
+
+    public bool Night
+    {
+        get
+        {
+            return night;
+        }
+
+        /*set
+        {
+            night = value;
+        }*/
+    }
+
+    public bool Countering
+    {
+        get
+        {
+            return countering;
+        }
+
+        /*set
+        {
+            countering = value;
+        }*/
+    }
+
     // Use this for initialization
     void Start () {
         oldcolor = coinTxt.GetComponent<Text>().color;
@@ -67,7 +95,40 @@ public class GameManager : MonoBehaviour {
             night = !night;
             SetNight(night);
         }
+        else
+        {
+            dayNightTimer -= Time.deltaTime;
+            if (dayNightTimer <= 30f && !night)
+            {
+                nightTxt.SetActive(true);
+                nightTxt.GetComponent<Text>().text = "Night arrives in: " + dayNightTimer.ToString("F2");
+            }
+        }
 	}
+    void SetNight(bool makeNight)
+    {
+        if (makeNight)
+        {
+            dayNightTimer = nightDuration;
+            nightTxt.SetActive(false);
+            oldBG = Camera.main.backgroundColor;
+            Camera.main.backgroundColor = new Color(0,0,.1f);//dark blue to simulate night without being pitch black and ruining transparancy
+        }
+        else
+        {
+            Camera.main.backgroundColor = oldBG;
+            dayNightTimer = dayDuration;
+        }
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<EnemyMove>().SetSprinting(makeNight);
+        }
+        foreach (GameObject go in Bases)
+        {
+            go.GetComponent<Base>().RespawnSpeedOverride(makeNight, 1f);
+        }
+    }
 
     public void AddCoins(int amount)
     {

@@ -11,7 +11,7 @@ public class Base : MonoBehaviour
     public GameObject RightBase = null;
     GameManager gm;
     public bool playerOwned = false;
-    float RespawnSpeed = 5f;
+    float RespawnSpeed = 10f;
     float OldRespawnSpeed;
     float timer;
     public float repairDelay = 10f;
@@ -66,6 +66,10 @@ public class Base : MonoBehaviour
         }
         else
         {
+            if (gm.Countering || gm.Night)
+            {
+                return;
+            }
             RespawnSpeed = OldRespawnSpeed;
         }
     }

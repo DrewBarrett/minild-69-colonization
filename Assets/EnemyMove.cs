@@ -13,9 +13,11 @@ public class EnemyMove : MonoBehaviour
     float sprintSpeedModifier = 6f;
     float cooldownTimer;
     List<Collider2D> currentTriggers;
+    GameManager gm;
     // Use this for initialization
     void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         currentTriggers = new List<Collider2D>();
         setShouldMove(true);
         cooldownTimer = 0;
@@ -64,7 +66,6 @@ public class EnemyMove : MonoBehaviour
         cooldownTimer = attackcooldown;
         if (attackTarget == null || attackTarget.GetComponent<Health>().Dead)
         {
-            
             //setShouldMove(true);
             return;
         }
@@ -90,6 +91,16 @@ public class EnemyMove : MonoBehaviour
         if (sprint == sprinting)
         {
             return;
+        }
+        else
+        {
+            if (!sprint)
+            {
+                if (gm.Night || gm.Countering)
+                {
+                    return;
+                }
+            }
         }
         sprinting = sprint;
         if (sprinting)

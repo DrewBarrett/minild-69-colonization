@@ -76,7 +76,7 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -3
+  textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
     filterMode: 0
@@ -99,8 +99,10 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: digletspritesheet_0
+    - serializedVersion: 2
+      name: digletspritesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -110,16 +112,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_1
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_1
       rect:
         serializedVersion: 2
         x: 400
@@ -129,16 +124,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_2
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_2
       rect:
         serializedVersion: 2
         x: 800
@@ -148,16 +136,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_3
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_3
       rect:
         serializedVersion: 2
         x: 1200
@@ -167,16 +148,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_4
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_4
       rect:
         serializedVersion: 2
         x: 1600
@@ -186,16 +160,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_5
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_5
       rect:
         serializedVersion: 2
         x: 2000
@@ -205,16 +172,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_6
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_6
       rect:
         serializedVersion: 2
         x: 2400
@@ -224,16 +184,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_7
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_7
       rect:
         serializedVersion: 2
         x: 2800
@@ -243,16 +196,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_8
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_8
       rect:
         serializedVersion: 2
         x: 0
@@ -262,16 +208,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_9
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_9
       rect:
         serializedVersion: 2
         x: 400
@@ -281,16 +220,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_10
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_10
       rect:
         serializedVersion: 2
         x: 800
@@ -300,16 +232,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_11
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_11
       rect:
         serializedVersion: 2
         x: 1200
@@ -319,16 +244,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_12
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_12
       rect:
         serializedVersion: 2
         x: 1600
@@ -338,16 +256,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_13
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_13
       rect:
         serializedVersion: 2
         x: 2000
@@ -357,16 +268,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_14
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_14
       rect:
         serializedVersion: 2
         x: 2400
@@ -376,16 +280,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_15
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_15
       rect:
         serializedVersion: 2
         x: 2800
@@ -395,16 +292,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_16
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_16
       rect:
         serializedVersion: 2
         x: 0
@@ -414,16 +304,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_17
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_17
       rect:
         serializedVersion: 2
         x: 400
@@ -433,16 +316,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 51}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 47}
-        - {x: 12, y: 51}
-    - name: digletspritesheet_18
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_18
       rect:
         serializedVersion: 2
         x: 800
@@ -452,16 +328,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 54}
-        - {x: -48, y: -88}
-        - {x: -47, y: -90}
-        - {x: -39, y: -92}
-        - {x: -4, y: -92}
-        - {x: 15, y: -74}
-        - {x: 15, y: 49}
-        - {x: 12, y: 54}
-    - name: digletspritesheet_19
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_19
       rect:
         serializedVersion: 2
         x: 1200
@@ -471,15 +340,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -47, y: 56}
-        - {x: -48, y: 55}
-        - {x: -48, y: -92}
-        - {x: 2, y: -92}
-        - {x: 15, y: -88}
-        - {x: 15, y: 55}
-        - {x: 8, y: 56}
-    - name: digletspritesheet_20
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_20
       rect:
         serializedVersion: 2
         x: 1600
@@ -489,13 +352,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 59}
-        - {x: -48, y: -92}
-        - {x: 0, y: -92}
-        - {x: 15, y: -82}
-        - {x: 15, y: 59}
-    - name: digletspritesheet_21
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_21
       rect:
         serializedVersion: 2
         x: 2000
@@ -505,14 +364,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -46, y: 59}
-        - {x: -51, y: 53}
-        - {x: -51, y: -92}
-        - {x: 18, y: -92}
-        - {x: 18, y: 43}
-        - {x: 9, y: 59}
-    - name: digletspritesheet_22
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_22
       rect:
         serializedVersion: 2
         x: 2400
@@ -522,15 +376,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -40, y: 59}
-        - {x: -54, y: 53}
-        - {x: -54, y: -78}
-        - {x: -52, y: -92}
-        - {x: 4, y: -92}
-        - {x: 20, y: -60}
-        - {x: 20, y: 59}
-    - name: digletspritesheet_23
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_23
       rect:
         serializedVersion: 2
         x: 2800
@@ -540,16 +388,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 59}
-        - {x: -56, y: 48}
-        - {x: -56, y: -76}
-        - {x: -53, y: -92}
-        - {x: -4, y: -92}
-        - {x: 16, y: -71}
-        - {x: 23, y: -35}
-        - {x: 23, y: 59}
-    - name: digletspritesheet_24
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_24
       rect:
         serializedVersion: 2
         x: 0
@@ -559,15 +400,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 22, y: 59}
-        - {x: -59, y: 59}
-        - {x: -59, y: -92}
-        - {x: -7, y: -92}
-        - {x: 10, y: -81}
-        - {x: 25, y: -3}
-        - {x: 25, y: 58}
-    - name: digletspritesheet_25
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_25
       rect:
         serializedVersion: 2
         x: 400
@@ -577,18 +412,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 18, y: 59}
-        - {x: -39, y: 59}
-        - {x: -42, y: 58}
-        - {x: -61, y: 36}
-        - {x: -61, y: -25}
-        - {x: -50, y: -92}
-        - {x: -7, y: -92}
-        - {x: 10, y: -81}
-        - {x: 28, y: -32}
-        - {x: 28, y: 42}
-    - name: digletspritesheet_26
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_26
       rect:
         serializedVersion: 2
         x: 800
@@ -598,17 +424,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -31, y: 59}
-        - {x: -42, y: 58}
-        - {x: -64, y: 36}
-        - {x: -64, y: -89}
-        - {x: -61, y: -92}
-        - {x: 18, y: -92}
-        - {x: 30, y: -1}
-        - {x: 30, y: 38}
-        - {x: 5, y: 59}
-    - name: digletspritesheet_27
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_27
       rect:
         serializedVersion: 2
         x: 1200
@@ -618,18 +436,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 11, y: 59}
-        - {x: -37, y: 59}
-        - {x: -42, y: 58}
-        - {x: -66, y: 34}
-        - {x: -66, y: -33}
-        - {x: -56, y: -92}
-        - {x: -7, y: -92}
-        - {x: 10, y: -81}
-        - {x: 33, y: 10}
-        - {x: 33, y: 40}
-    - name: digletspritesheet_28
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_28
       rect:
         serializedVersion: 2
         x: 1600
@@ -639,19 +448,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 4, y: 59}
-        - {x: -40, y: 59}
-        - {x: -69, y: 24}
-        - {x: -69, y: 6}
-        - {x: -54, y: -73}
-        - {x: -45, y: -92}
-        - {x: 5, y: -92}
-        - {x: 19, y: -87}
-        - {x: 36, y: 1}
-        - {x: 36, y: 41}
-        - {x: 15, y: 57}
-    - name: digletspritesheet_29
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_29
       rect:
         serializedVersion: 2
         x: 2000
@@ -661,21 +460,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -45, y: 59}
-        - {x: -71, y: 42}
-        - {x: -71, y: 4}
-        - {x: -70, y: 3}
-        - {x: -65, y: 5}
-        - {x: -50, y: -73}
-        - {x: -46, y: -89}
-        - {x: -45, y: -92}
-        - {x: 1, y: -92}
-        - {x: 19, y: -87}
-        - {x: 38, y: 1}
-        - {x: 38, y: 52}
-        - {x: 33, y: 59}
-    - name: digletspritesheet_30
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_30
       rect:
         serializedVersion: 2
         x: 2400
@@ -685,21 +472,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -45, y: 59}
-        - {x: -71, y: 42}
-        - {x: -71, y: 4}
-        - {x: -70, y: 3}
-        - {x: -65, y: 5}
-        - {x: -50, y: -73}
-        - {x: -46, y: -89}
-        - {x: -45, y: -92}
-        - {x: 1, y: -92}
-        - {x: 19, y: -87}
-        - {x: 38, y: 1}
-        - {x: 38, y: 52}
-        - {x: 33, y: 59}
-    - name: digletspritesheet_31
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_31
       rect:
         serializedVersion: 2
         x: 2800
@@ -709,17 +484,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -54, y: 59}
-        - {x: -74, y: 26}
-        - {x: -74, y: -55}
-        - {x: -56, y: -92}
-        - {x: 1, y: -92}
-        - {x: 25, y: -78}
-        - {x: 41, y: -17}
-        - {x: 41, y: 53}
-        - {x: 25, y: 59}
-    - name: digletspritesheet_32
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_32
       rect:
         serializedVersion: 2
         x: 0
@@ -729,18 +496,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -45, y: 59}
-        - {x: -77, y: 23}
-        - {x: -77, y: 2}
-        - {x: -76, y: 1}
-        - {x: -56, y: -75}
-        - {x: -45, y: -92}
-        - {x: 30, y: -92}
-        - {x: 43, y: -18}
-        - {x: 43, y: 57}
-        - {x: 37, y: 59}
-    - name: digletspritesheet_33
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_33
       rect:
         serializedVersion: 2
         x: 400
@@ -750,16 +508,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -44, y: 59}
-        - {x: -79, y: 17}
-        - {x: -79, y: -18}
-        - {x: -45, y: -92}
-        - {x: 24, y: -92}
-        - {x: 46, y: -5}
-        - {x: 46, y: 50}
-        - {x: 11, y: 59}
-    - name: digletspritesheet_34
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_34
       rect:
         serializedVersion: 2
         x: 800
@@ -769,17 +520,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 18, y: 59}
-        - {x: -63, y: 59}
-        - {x: -82, y: 34}
-        - {x: -82, y: -71}
-        - {x: -58, y: -92}
-        - {x: 16, y: -92}
-        - {x: 19, y: -88}
-        - {x: 48, y: 10}
-        - {x: 48, y: 53}
-    - name: digletspritesheet_35
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_35
       rect:
         serializedVersion: 2
         x: 1200
@@ -789,20 +532,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -55, y: 59}
-        - {x: -84, y: 21}
-        - {x: -84, y: -2}
-        - {x: -83, y: -4}
-        - {x: -75, y: -2}
-        - {x: -55, y: -73}
-        - {x: -45, y: -92}
-        - {x: 14, y: -92}
-        - {x: 21, y: -90}
-        - {x: 51, y: -27}
-        - {x: 51, y: 35}
-        - {x: 36, y: 59}
-    - name: digletspritesheet_36
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_36
       rect:
         serializedVersion: 2
         x: 1600
@@ -812,18 +544,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 17, y: 59}
-        - {x: -36, y: 59}
-        - {x: -42, y: 58}
-        - {x: -50, y: 40}
-        - {x: -87, y: 39}
-        - {x: -87, y: -92}
-        - {x: 10, y: -92}
-        - {x: 54, y: -37}
-        - {x: 54, y: 42}
-        - {x: 49, y: 46}
-    - name: digletspritesheet_37
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_37
       rect:
         serializedVersion: 2
         x: 2000
@@ -833,21 +556,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 4, y: 59}
-        - {x: -31, y: 59}
-        - {x: -41, y: 56}
-        - {x: -89, y: 14}
-        - {x: -89, y: -6}
-        - {x: -87, y: -7}
-        - {x: -81, y: -8}
-        - {x: -46, y: -89}
-        - {x: -43, y: -92}
-        - {x: 10, y: -92}
-        - {x: 56, y: -38}
-        - {x: 56, y: 44}
-        - {x: 52, y: 49}
-    - name: digletspritesheet_38
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_38
       rect:
         serializedVersion: 2
         x: 2400
@@ -857,17 +568,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -43, y: 59}
-        - {x: -92, y: 14}
-        - {x: -92, y: -18}
-        - {x: -46, y: -89}
-        - {x: -43, y: -92}
-        - {x: 12, y: -92}
-        - {x: 59, y: -31}
-        - {x: 59, y: 44}
-        - {x: 32, y: 59}
-    - name: digletspritesheet_39
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_39
       rect:
         serializedVersion: 2
         x: 2800
@@ -877,20 +580,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -39, y: 59}
-        - {x: -42, y: 58}
-        - {x: -50, y: 40}
-        - {x: -69, y: 27}
-        - {x: -94, y: 6}
-        - {x: -94, y: -15}
-        - {x: -82, y: -51}
-        - {x: -44, y: -92}
-        - {x: 16, y: -92}
-        - {x: 61, y: 8}
-        - {x: 61, y: 43}
-        - {x: 30, y: 59}
-    - name: digletspritesheet_40
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_40
       rect:
         serializedVersion: 2
         x: 0
@@ -900,17 +592,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -41, y: 59}
-        - {x: -97, y: 4}
-        - {x: -97, y: -14}
-        - {x: -46, y: -92}
-        - {x: 14, y: -92}
-        - {x: 21, y: -90}
-        - {x: 64, y: 0}
-        - {x: 64, y: 43}
-        - {x: 38, y: 59}
-    - name: digletspritesheet_41
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_41
       rect:
         serializedVersion: 2
         x: 400
@@ -920,19 +604,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -31, y: 59}
-        - {x: -42, y: 58}
-        - {x: -61, y: 43}
-        - {x: -100, y: 7}
-        - {x: -100, y: -22}
-        - {x: -99, y: -23}
-        - {x: -65, y: -92}
-        - {x: 25, y: -92}
-        - {x: 66, y: 1}
-        - {x: 66, y: 33}
-        - {x: 8, y: 59}
-    - name: digletspritesheet_42
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_42
       rect:
         serializedVersion: 2
         x: 800
@@ -942,19 +616,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -44, y: 59}
-        - {x: -102, y: 18}
-        - {x: -102, y: -12}
-        - {x: -87, y: -17}
-        - {x: -46, y: -89}
-        - {x: -44, y: -92}
-        - {x: 12, y: -92}
-        - {x: 21, y: -90}
-        - {x: 69, y: -7}
-        - {x: 69, y: 44}
-        - {x: 50, y: 59}
-    - name: digletspritesheet_43
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_43
       rect:
         serializedVersion: 2
         x: 1200
@@ -964,18 +628,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 30, y: 59}
-        - {x: -47, y: 59}
-        - {x: -100, y: 2}
-        - {x: -100, y: -25}
-        - {x: -46, y: -89}
-        - {x: -39, y: -92}
-        - {x: -7, y: -92}
-        - {x: 10, y: -81}
-        - {x: 64, y: 1}
-        - {x: 64, y: 34}
-    - name: digletspritesheet_44
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_44
       rect:
         serializedVersion: 2
         x: 1600
@@ -985,18 +640,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 30, y: 59}
-        - {x: -47, y: 59}
-        - {x: -100, y: 2}
-        - {x: -100, y: -25}
-        - {x: -46, y: -89}
-        - {x: -39, y: -92}
-        - {x: -7, y: -92}
-        - {x: 10, y: -81}
-        - {x: 64, y: 1}
-        - {x: 64, y: 34}
-    - name: digletspritesheet_45
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_45
       rect:
         serializedVersion: 2
         x: 2000
@@ -1006,17 +652,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -48, y: 59}
-        - {x: -100, y: 22}
-        - {x: -100, y: -50}
-        - {x: -60, y: -92}
-        - {x: 2, y: -92}
-        - {x: 18, y: -87}
-        - {x: 64, y: -15}
-        - {x: 64, y: 29}
-        - {x: 14, y: 59}
-    - name: digletspritesheet_46
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_46
       rect:
         serializedVersion: 2
         x: 2400
@@ -1026,18 +664,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 30, y: 59}
-        - {x: -47, y: 59}
-        - {x: -100, y: 2}
-        - {x: -100, y: -25}
-        - {x: -46, y: -89}
-        - {x: -39, y: -92}
-        - {x: -7, y: -92}
-        - {x: 10, y: -81}
-        - {x: 64, y: 1}
-        - {x: 64, y: 34}
-    - name: digletspritesheet_47
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_47
       rect:
         serializedVersion: 2
         x: 2800
@@ -1047,19 +676,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -44, y: 59}
-        - {x: -102, y: 18}
-        - {x: -102, y: -12}
-        - {x: -87, y: -17}
-        - {x: -46, y: -89}
-        - {x: -44, y: -92}
-        - {x: 12, y: -92}
-        - {x: 21, y: -90}
-        - {x: 69, y: -7}
-        - {x: 69, y: 44}
-        - {x: 50, y: 59}
-    - name: digletspritesheet_48
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_48
       rect:
         serializedVersion: 2
         x: 0
@@ -1069,18 +688,9 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 30, y: 59}
-        - {x: -47, y: 59}
-        - {x: -100, y: 2}
-        - {x: -100, y: -25}
-        - {x: -46, y: -89}
-        - {x: -39, y: -92}
-        - {x: -7, y: -92}
-        - {x: 10, y: -81}
-        - {x: 64, y: 1}
-        - {x: 64, y: 34}
-    - name: digletspritesheet_49
+      outline: []
+    - serializedVersion: 2
+      name: digletspritesheet_49
       rect:
         serializedVersion: 2
         x: 400
@@ -1090,15 +700,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -56, y: 59}
-        - {x: -100, y: 24}
-        - {x: -100, y: -49}
-        - {x: -62, y: -92}
-        - {x: 22, y: -92}
-        - {x: 64, y: -39}
-        - {x: 64, y: 49}
-        - {x: 49, y: 59}
+      outline: []
     outline: []
   spritePackingTag: 
   userData: 
