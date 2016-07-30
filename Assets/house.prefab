@@ -98,7 +98,7 @@ GameObject:
   - 4: {fileID: 444586}
   - 212: {fileID: 21213686}
   m_Layer: 0
-  m_Name: Square
+  m_Name: FlagPole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -293,8 +293,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.2, y: 1.444, z: 0}
-  m_LocalScale: {x: 1.15, y: 0.89, z: 1.037705}
+  m_LocalPosition: {x: 20.52, y: 1.478, z: 0}
+  m_LocalScale: {x: 35.43, y: 2.47, z: 1.037705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 475398}
@@ -849,8 +849,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e15b2b863b3d9a24a90857af85980967, type: 3}
-  m_Color: {r: 0.5441177, g: 0.5441177, b: 0.5441177, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 09b9cae8cd71a6d43a8ff4417272e7ab, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &21216832

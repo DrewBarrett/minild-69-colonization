@@ -124,6 +124,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 444586, guid: db60ab768c6861a4d8d31e428744005c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 20.52
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db60ab768c6861a4d8d31e428744005c, type: 2}
   m_IsPrefabParent: 0
@@ -649,7 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -781,7 +785,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 464806, guid: 5141dfeadbf0b1748a18540e52925509, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.01
+      value: -6.29
       objectReference: {fileID: 0}
     - target: {fileID: 464806, guid: 5141dfeadbf0b1748a18540e52925509, type: 2}
       propertyPath: m_LocalPosition.y
@@ -815,6 +819,10 @@ Prefab:
       propertyPath: deadtext
       value: 
       objectReference: {fileID: 568562381}
+    - target: {fileID: 12054108, guid: 5141dfeadbf0b1748a18540e52925509, type: 2}
+      propertyPath: m_UseWorldSpace
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5141dfeadbf0b1748a18540e52925509, type: 2}
   m_IsPrefabParent: 0
@@ -1176,7 +1184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.8206897, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
