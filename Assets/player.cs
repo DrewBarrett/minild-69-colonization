@@ -9,6 +9,9 @@ public class player : MonoBehaviour
     public Text deadtext;
     public int distance;
     bool dead = false;
+    public float fireCooldown = .1f;
+    float fireTimer;
+    float m_GunFlareVisibleSeconds = .07f;
     GameObject target = null;
     // Use this for initialization
     void Start()
@@ -28,13 +31,15 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!dead && Input.GetMouseButtonDown(0))
+        if (!dead && fireTimer <= 0 && Input.GetAxisRaw("Fire1") > 0)
         {
             Fire();
+            
         }
         else
         {
-            bulletexit.GetComponent<LineRenderer>().enabled = false;
+            //bulletexit.GetComponent<LineRenderer>().enabled = false;
+            fireTimer -= Time.deltaTime;
         }
         if (Input.GetButtonDown("Jump"))
         {
@@ -83,6 +88,7 @@ public class player : MonoBehaviour
 
     void Fire()
     {
+        fireTimer = fireCooldown;
         GetComponent<AudioSource>().PlayOneShot(gunshot);
         RaycastHit2D[] rayhits = Physics2D.RaycastAll(bulletexit.transform.position, bulletexit.transform.right * Mathf.Sign(transform.localScale.x), distance);
         RaycastHit2D rayhit = new RaycastHit2D();
@@ -94,7 +100,7 @@ public class player : MonoBehaviour
                 break;
             }
         }
-        bulletexit.GetComponent<LineRenderer>().enabled = true;
+        
         Vector3 startvector = bulletexit.transform.position;
         //startvector.x *= bulletexit.transform.forward.x;
         bulletexit.GetComponent<LineRenderer>().SetPosition(0, startvector);
@@ -112,5 +118,24 @@ public class player : MonoBehaviour
             dist = distance;
         }
         bulletexit.GetComponent<LineRenderer>().SetPosition(1, bulletexit.transform.position + new Vector3(dist * Mathf.Sign(transform.localScale.x), 0));
+        StartCoroutine(UpdateLineRenderer());
+    }
+    private IEnumerator UpdateLineRenderer()
+    {
+        bulletexit.GetComponent<LineRenderer>().enabled = true;
+        // Create a timer.
+        float timer = 0f;
+
+        // While that timer has not yet reached the length of time that the gun effects should be visible for...
+        while (timer < m_GunFlareVisibleSeconds)
+        {
+
+            // Wait for the next frame.
+            yield return null;
+
+            // Increment the timer by the amount of time waited.
+            timer += Time.deltaTime;
+        }
+        bulletexit.GetComponent<LineRenderer>().enabled = false;
     }
 }

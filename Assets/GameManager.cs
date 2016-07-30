@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     public GameObject nightTxt;
     public GameObject counterAttackTxt;
     public GameObject basePrefab;
+    public float respawnSpeedOverride = 5f;
     List<GameObject> Bases;
     Color oldcolor;
     float dayDuration = 60f;
@@ -126,7 +127,7 @@ public class GameManager : MonoBehaviour {
         }
         foreach (GameObject go in Bases)
         {
-            go.GetComponent<Base>().RespawnSpeedOverride(makeNight, 1f);
+            go.GetComponent<Base>().RespawnSpeedOverride(makeNight, respawnSpeedOverride);
         }
     }
 
@@ -180,7 +181,7 @@ public class GameManager : MonoBehaviour {
         }
         foreach (GameObject go in Bases)
         {
-            go.GetComponent<Base>().RespawnSpeedOverride(b, 1f);
+            go.GetComponent<Base>().RespawnSpeedOverride(b, respawnSpeedOverride);
         }
     }
     public void CounterAttack(bool b, GameObject caller)

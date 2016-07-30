@@ -20,7 +20,7 @@ public class Base : MonoBehaviour
     void Start()
     {
         timer = RespawnSpeed;
-        OldRespawnSpeed = 5f;
+        OldRespawnSpeed = 10f;
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         //gm.AddBase(gameObject);
     }
