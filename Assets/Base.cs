@@ -175,5 +175,9 @@ public class Base : MonoBehaviour
             flag.GetComponent<SpriteRenderer>().color = Color.green;
             gm.CounterAttack(true, gameObject);
         }
+        else
+        {
+            flag.GetComponent<SpriteRenderer>().color = Color.red;
+        }
     }
 }
