@@ -182,7 +182,7 @@ public class EnemyMove : MonoBehaviour
         {
 
             //GetComponent<Rigidbody2D>().velocity = ( transform.position - collision.transform.position);
-            player.GetComponent<player>().Die();
+            player.GetComponent<player>().BeAttacked(gameObject);
             
 
             return;

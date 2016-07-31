@@ -18,6 +18,7 @@ public class player : MonoBehaviour
     float staminaRechargeDelay = 3f;
     float staminaRechargeTimer;
     float staminaRechargeRate = 2f;
+    float tailWhipCost = 35f;
     bool staminaRecharge = false;
     internal bool staminaInUse = false;
     float stamina;
@@ -41,7 +42,7 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!dead && fireTimer <= 0 && Input.GetButtonDown("Fire1"))
+        if (!dead && fireTimer <= 0 && !staminaInUse  && Input.GetButtonDown("Fire1"))
         {
             Fire();
             
@@ -185,5 +186,20 @@ public class player : MonoBehaviour
             timer += Time.deltaTime;
         }
         bulletexit.GetComponent<LineRenderer>().enabled = false;
+    }
+
+    internal void BeAttacked(GameObject go)
+    {
+        if (SpendStamina(tailWhipCost))
+        {
+            go.GetComponent<Health>().TakeDamage(int.MaxValue);
+            go.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            go.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 20f), ForceMode2D.Impulse);
+            return;
+        }
+        else
+        {
+            Die();
+        }
     }
 }
