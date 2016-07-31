@@ -31,7 +31,7 @@ public class Base : MonoBehaviour
         if (!playerOwned && timer <= 0)
         {
             SpawnEnemy();
-            timer = RespawnSpeed + Random.Range(0f, 3f);
+            timer = RespawnSpeed + Random.Range(0f, RespawnSpeed);
         }
         else
         {
@@ -62,7 +62,9 @@ public class Base : MonoBehaviour
     {
         if (shouldOverride)
         {
+            timer -= (RespawnSpeed - newSpeed);
             RespawnSpeed = newSpeed;
+            
         }
         else
         {
@@ -75,7 +77,11 @@ public class Base : MonoBehaviour
     }
     public void RespawnSpeedOverride(bool shouldOverride)
     {
-        RespawnSpeedOverride(shouldOverride);
+        RespawnSpeedOverride(shouldOverride, 0f);
+        if (shouldOverride == true)
+        {
+            Debug.LogError("No override time set!");
+        }
     }
     void SpawnEnemy()
     {

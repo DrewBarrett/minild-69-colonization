@@ -335,7 +335,7 @@ MonoBehaviour:
   gunshot: {fileID: 8300000, guid: 87af2daa56a36a74da48b663947044c7, type: 3}
   deadtext: {fileID: 0}
   distance: 10
-  fireCooldown: 0.3
+  fireCooldown: 0.15
 --- !u!120 &12054108
 LineRenderer:
   m_ObjectHideFlags: 1

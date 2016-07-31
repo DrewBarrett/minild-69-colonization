@@ -1,22 +1,33 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class player : MonoBehaviour
 {
     public GameObject bulletexit;
     public AudioClip gunshot;
+    public GameObject staminaText;
     public Text deadtext;
     public int distance;
     bool dead = false;
     public float fireCooldown = .1f;
     float fireTimer;
     float m_GunFlareVisibleSeconds = .07f;
+    float maxStamina = 100f;
+    float staminaRechargeDelay = 3f;
+    float staminaRechargeTimer;
+    float staminaRechargeRate = 2f;
+    bool staminaRecharge = false;
+    internal bool staminaInUse = false;
+    float stamina;
     GameObject target = null;
     // Use this for initialization
     void Start()
     {
-
+        stamina = 0;
+        staminaRechargeTimer = staminaRechargeDelay;
+        UpdateStaminaText();
     }
 
     public void BuildTarget()
@@ -25,13 +36,12 @@ public class player : MonoBehaviour
         {
             target.GetComponent<Health>().Build();
         }
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!dead && fireTimer <= 0 && Input.GetAxisRaw("Fire1") > 0)
+        if (!dead && fireTimer <= 0 && Input.GetButtonDown("Fire1"))
         {
             Fire();
             
@@ -48,6 +58,44 @@ public class player : MonoBehaviour
                 BuildTarget();
             }
         }
+        if (!staminaRecharge && !staminaInUse)
+        {
+            staminaRechargeTimer -= Time.deltaTime;
+        }
+        if (staminaRechargeTimer <= 0)
+        {
+            staminaRecharge = true;
+        }
+        if (stamina < maxStamina && staminaRecharge)
+        {
+            stamina += staminaRechargeRate * Time.deltaTime;
+            if (stamina > maxStamina)
+            {
+                stamina = maxStamina;
+            }
+            UpdateStaminaText();
+        }
+        
+    }
+
+    public bool SpendStamina(float v)
+    {
+        if (v <= stamina)
+        {
+            staminaInUse = true;
+            stamina -= v;
+            staminaRecharge = false;
+            staminaRechargeTimer = staminaRechargeDelay;
+            UpdateStaminaText();
+            return true;
+        }
+        return false;
+    }
+
+    void UpdateStaminaText()
+    {
+        //TODO: color code
+        staminaText.GetComponent<Text>().text = "Stamina: " + stamina.ToString("F0");
     }
     public void Die()
     {

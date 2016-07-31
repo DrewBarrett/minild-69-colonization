@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
     public GameObject nightTxt;
     public GameObject counterAttackTxt;
     public GameObject basePrefab;
-    public float respawnSpeedOverride = 5f;
+    float respawnSpeedOverride = 2f;
     List<GameObject> Bases;
     Color oldcolor;
     float dayDuration = 60f;
