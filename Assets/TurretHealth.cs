@@ -4,7 +4,7 @@ using System.Collections;
 
 public class TurretHealth : Health {
     public bool built = false;
-    int buildCost = 50;
+    int buildCost = 25;
     internal int upgradeLevel = 0;
     override protected void Start()
     {
@@ -13,6 +13,7 @@ public class TurretHealth : Health {
         {
             Dead = true;
         }
+        GetComponentInChildren<Text>(true).text = "Activate to build turret for 25 coins";
     }
     /*void Update()
     {
@@ -25,11 +26,18 @@ public class TurretHealth : Health {
     public override void Build()
     {
         built = true;
+        buildCost = 25;
         upgradeLevel++;
+        if (upgradeLevel > 1)
+        {
+            GetComponent<Turret>().damage += 1;
+            GetComponent<Turret>().range += 1;
+            GetComponent<Turret>().shootCooldown -= .2f;
+        }
         //gameObject.tag = "UnTagged";
         SetHealth();
         GetComponentInChildren<Canvas>(true).gameObject.SetActive(false);
-        GetComponentInChildren<Text>(true).text = "Activate to upgrade turret for 50 coins";
+        GetComponentInChildren<Text>(true).text = "Activate to upgrade turret for 25 coins (Infinite uses)";
     }
     public override int BuildCost()
     {

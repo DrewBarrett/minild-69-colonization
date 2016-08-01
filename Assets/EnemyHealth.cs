@@ -13,4 +13,9 @@ public class EnemyHealth : Health {
         Instantiate(dropPrefab, new Vector3(transform.position.x, 0), Quaternion.identity);
         Destroy(gameObject, 10f);
     }
+    public void newMax(int newmax)
+    {
+        maxhealth = newmax;
+        health = maxhealth;
+    }
 }

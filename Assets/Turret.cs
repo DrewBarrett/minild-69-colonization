@@ -2,10 +2,10 @@
 using System.Collections;
 
 public class Turret : MonoBehaviour {
-    float shootCooldown = 5f;
-    int damage = 30;
+    internal float shootCooldown = 5f;
+    internal int damage = 29;
     float shootTimer;
-    float range = 10f;
+    internal float range = 10f;
     public GameObject shootPoint;
     public AudioClip gunshot;
     float m_GunFlareVisibleSeconds = .07f;

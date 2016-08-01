@@ -5,11 +5,15 @@ using System.Collections;
 public class Base : MonoBehaviour
 {
     public GameObject enemyPrefab;
+    private GameObject alertHolder;
+    public GameObject alertPrefab;
+    GameObject myAlert;
     public GameObject flag;
     public GameObject[] walls;
     public GameObject LeftBase = null;
     public GameObject RightBase = null;
     GameManager gm;
+    GameObject player;
     public bool playerOwned = false;
     float RespawnSpeed = 10f;
     float OldRespawnSpeed;
@@ -19,6 +23,11 @@ public class Base : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        alertHolder = GameObject.FindGameObjectWithTag("AlertHolder");
+        myAlert = Instantiate(alertPrefab);
+        myAlert.transform.SetParent(alertHolder.transform);
+        myAlert.transform.localScale = new Vector3(1, 1, 1);
+        player = GameObject.FindGameObjectWithTag("Player");
         timer = RespawnSpeed;
         OldRespawnSpeed = 10f;
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
@@ -44,11 +53,26 @@ public class Base : MonoBehaviour
             {
                 wall.GetComponent<WallHealth>().shouldRepair = true;
             }
+
+            myAlert.SetActive(false);
         }
         else
         {
             attackedTimer -= Time.deltaTime;
+            if (playerOwned && Mathf.Abs(player.transform.position.x - transform.position.x) > 30)
+            {
+                myAlert.SetActive(true);
+                UpdateAlertText();
+            }
+            else
+            {
+                myAlert.SetActive(false);
+            }
         }
+    }
+    void UpdateAlertText()
+    {
+        myAlert.GetComponent<Text>().text = "Base under attack! " + Mathf.Abs(player.transform.position.x - transform.position.x).ToString("F1") + "\'";
     }
     public void TakeDamage()
     {
@@ -89,7 +113,14 @@ public class Base : MonoBehaviour
         {
             return;
         }
+        if (!gm)
+        {
+            Start();
+        }
         GameObject enemy = (GameObject)Instantiate(enemyPrefab, new Vector3(gameObject.transform.position.x + 4, 1.3f), Quaternion.identity);
+        enemy.GetComponent<EnemyMove>().damageAmount = Mathf.RoundToInt(gm.eDamage);
+        enemy.GetComponent<EnemyMove>().speedModifier = gm.eSpeedMod;
+        enemy.GetComponent<EnemyHealth>().newMax(Mathf.RoundToInt(gm.eHealth));
         if (OldRespawnSpeed != RespawnSpeed)
         {
             enemy.GetComponent<EnemyMove>().SetSprinting(true);
@@ -184,6 +215,7 @@ public class Base : MonoBehaviour
         else
         {
             flag.GetComponent<SpriteRenderer>().color = Color.red;
+            myAlert.SetActive(false);
         }
     }
 }

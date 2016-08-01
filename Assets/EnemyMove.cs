@@ -7,12 +7,12 @@ public class EnemyMove : MonoBehaviour
     public GameObject rayCastStart;
     public int damageAmount = 3;
     GameObject player;
-    GameObject attackTarget;
+    //GameObject attackTarget;
     bool shouldMove;
-    public float attackcooldown;
+    //public float attackcooldown;
     public float jumpCooldown = 2f;
     float jumpTimer;
-    float speedModifier = 3f;
+    public float speedModifier = 3f;
     bool sprinting = false;
     float sprintSpeedModifier = 6f;
     float cooldownTimer;
@@ -97,17 +97,17 @@ public class EnemyMove : MonoBehaviour
         {
             return;
         }
-        if (attackTarget)
+        /*if (attackTarget)
         {
             Attack();
-        }
+        }*/
     }
     void SetShouldReverse()
     {
         shouldReverse = true;
         reverseRemaining = reverseDistance;
     }
-    void Attack()
+    /*void Attack()
     {
         if (cooldownTimer > 0)
         {
@@ -122,7 +122,7 @@ public class EnemyMove : MonoBehaviour
         }
         attackTarget.GetComponent<Health>().TakeDamage(5);
 
-    }
+    }*/
     void setShouldMove(bool should)
     {
         shouldMove = should;

@@ -1295,6 +1295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 130814, guid: c8f6d0b40bda9074e955fac4d400227c, type: 2}
+  alertPrefab: {fileID: 120248, guid: d586c054a1e31534cb445bfc2b6e7321, type: 2}
   flag: {fileID: 160930}
   walls:
   - {fileID: 158626}

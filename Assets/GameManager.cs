@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour {
     bool countering = false;
     float counterColorMod = 1f;
     float counterTimer;
+    internal float eDamage = 3f;
+    internal float eSpeedMod = 3f;
+    internal float eHealth = 30;
     public GameObject coinTxt;
     public GameObject nightTxt;
     public GameObject counterAttackTxt;
@@ -65,6 +68,9 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        eDamage += Time.deltaTime * .001f;
+        eSpeedMod += Time.deltaTime * .001f;
+        eHealth += Time.deltaTime * .001f;
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("main");//restarts level
