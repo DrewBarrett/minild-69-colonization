@@ -50,6 +50,10 @@ public class WallHealth : Health
         gameObject.tag = "Wall";
         SetHealth();
         GetComponentInChildren<Canvas>(true).gameObject.SetActive(false);
+        GetComponentInChildren<Turret>(true).gameObject.SetActive(true);
+        
+
+        
     }
     public override int BuildCost()
     {
