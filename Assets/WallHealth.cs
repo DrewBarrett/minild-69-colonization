@@ -90,6 +90,10 @@ public class WallHealth : Health
         if (!GetComponentInParent<Base>().playerOwned)
         {
             gameObject.SetActive(!die);
+            if (GetComponentInChildren<TurretHealth>())
+            {
+                GetComponentInChildren<TurretHealth>().Destroy();
+            }
         }
 
     }

@@ -69,6 +69,10 @@ public class GameManager : MonoBehaviour {
         {
             SceneManager.LoadScene("main");//restarts level
         }
+        if (Input.GetKeyDown(KeyCode.BackQuote))
+        {
+            AddCoins(int.MaxValue);
+        }
         if (countering)
         {
             Color newColor = counterAttackTxt.GetComponent<Text>().color;
