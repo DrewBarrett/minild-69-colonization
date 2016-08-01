@@ -61,7 +61,11 @@ public class Health : MonoBehaviour {
         Dead = die;
         if (die)
         {
-            GetComponent<AudioSource>().PlayOneShot(deathsound);
+            if (deathsound)
+            {
+                GetComponent<AudioSource>().PlayOneShot(deathsound);
+            }
+            
         }
         
         //GetComponent<BoxCollider2D>().isTrigger = true;
