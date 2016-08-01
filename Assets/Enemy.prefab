@@ -140,7 +140,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -212,7 +212,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayCastStart: {fileID: 155972}
-  attackcooldown: 1
+  damageAmount: 3
+  jumpCooldown: 2
+  speedModifier: 3
 --- !u!212 &21262818
 SpriteRenderer:
   m_ObjectHideFlags: 1
