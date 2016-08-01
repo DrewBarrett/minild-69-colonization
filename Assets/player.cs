@@ -143,7 +143,7 @@ public class player : MonoBehaviour
         RaycastHit2D rayhit = new RaycastHit2D();
         foreach (RaycastHit2D hit in rayhits)
         {
-            if ((hit.collider.gameObject.tag == "Enemy" && !hit.collider.GetComponent<Health>().Dead) || hit.collider.isTrigger == false)
+            if ((hit.collider.gameObject.tag == "Enemy" && !hit.collider.GetComponent<Health>().Dead) || (hit.collider.isTrigger == false && hit.collider.gameObject.tag == "Wall"))
             {
                 rayhit = hit;
                 break;
