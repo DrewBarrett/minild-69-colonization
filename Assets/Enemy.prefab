@@ -12,10 +12,9 @@ GameObject:
   - 95: {fileID: 9567562}
   - 61: {fileID: 6155612}
   - 82: {fileID: 8289078}
-  - 114: {fileID: 11499096}
   - 50: {fileID: 5077048}
   - 114: {fileID: 11458238}
-  - 114: {fileID: 114000014056009436}
+  - 114: {fileID: 114000013818507314}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -201,21 +200,6 @@ MonoBehaviour:
   maxhealth: 30
   deathsound: {fileID: 8300000, guid: 9bc02a40c8e62bb43b54509c05005860, type: 3}
   dropPrefab: {fileID: 195220, guid: b6089b611d136104a9caa996c78d0744, type: 2}
---- !u!114 &11499096
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb790acb0cafdab459cb5fe1e3f0f361, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rayCastStart: {fileID: 155972}
-  damageAmount: 3
-  jumpCooldown: 2
-  speedModifier: 3
 --- !u!212 &21262818
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -260,7 +244,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 130814}
   m_IsPrefabParent: 1
---- !u!114 &114000014056009436
+--- !u!114 &114000013818507314
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -268,27 +252,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 130814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Script: {fileID: 11500000, guid: e7372ad1267eb6a49ae21c8d1bd8f521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 200
-    i1: 246
-    i2: 208
-    i3: 180
-    i4: 11
-    i5: 218
-    i6: 144
-    i7: 116
-    i8: 233
-    i9: 85
-    i10: 250
-    i11: 196
-    i12: 212
-    i13: 0
-    i14: 34
-    i15: 124
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
+  rayCastStart: {fileID: 155972}
+  damageAmount: 3
+  speedModifier: 3
