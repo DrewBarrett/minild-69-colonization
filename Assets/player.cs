@@ -7,8 +7,10 @@ public class player : MonoBehaviour
 {
     public GameObject bulletexit;
     public AudioClip gunshot;
-    public GameObject staminaText;
-    public Text deadtext;
+    public GameObject gun;
+    private GameObject MainUI;
+    private GameObject staminaText;
+    private Text deadtext;
     public int distance;
     bool dead = false;
     public float fireCooldown = .1f;
@@ -26,9 +28,38 @@ public class player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        /*if (!isLocalPlayer)
+        {
+            enabled = false;
+        }*/
+        MainUI = GameObject.FindGameObjectWithTag("MainUI");
+        Text[] texts = MainUI.GetComponentsInChildren<Text>(true);
+        foreach (Text text in texts)
+        {
+            if (text.gameObject.name == "Stamina")
+            {
+                staminaText = text.gameObject;
+                if (deadtext)
+                {
+                    break;
+                }
+            }
+            else if (text.gameObject.name == "dead")
+            {
+                deadtext = text;
+                if (staminaText)
+                {
+                    break;
+                }
+            }
+        }
         stamina = 0;
         staminaRechargeTimer = staminaRechargeDelay;
         UpdateStaminaText();
+        Camera.main.transform.SetParent(transform);
+        Vector3 camtrans = Camera.main.transform.localPosition;
+        camtrans.x = 0;
+        Camera.main.transform.localPosition = camtrans;
     }
 
     public void BuildTarget()
@@ -42,6 +73,20 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (dead)
+        {
+            return;
+        }
+        var cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var dir = cursorPos - gun.transform.position;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        //angle -= 90;
+        //angle *= transform.localScale.x;
+        if (transform.localScale.x < 0)
+        {
+            angle += 180;
+        }
+        gun.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         if (!dead && fireTimer <= 0 && !staminaInUse  && Input.GetButtonDown("Fire1"))
         {
             Fire();
@@ -100,11 +145,14 @@ public class player : MonoBehaviour
     }
     public void Die()
     {
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreManager>().GameOver();
+        Camera.main.transform.SetParent(null);
         dead = true;
         Debug.Log("Player died");
         deadtext.gameObject.SetActive(true);
 
         gameObject.SetActive(false);
+        
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -143,7 +191,7 @@ public class player : MonoBehaviour
         RaycastHit2D rayhit = new RaycastHit2D();
         foreach (RaycastHit2D hit in rayhits)
         {
-            if ((hit.collider.gameObject.tag == "Enemy" && !hit.collider.GetComponent<Health>().Dead) || (hit.collider.isTrigger == false && hit.collider.gameObject.tag == "Wall"))
+            if ((hit.collider.gameObject.tag == "Enemy" && !hit.collider.GetComponent<Health>().Dead) || (hit.collider.isTrigger == false && (hit.collider.gameObject.tag == "Wall" || hit.collider.gameObject.tag == "Floor")))
             {
                 rayhit = hit;
                 break;
@@ -154,6 +202,7 @@ public class player : MonoBehaviour
         //startvector.x *= bulletexit.transform.forward.x;
         bulletexit.GetComponent<LineRenderer>().SetPosition(0, startvector);
         float dist;
+        Vector3 pos = Vector3.zero;
         if (rayhit.collider && rayhit.collider.gameObject.GetComponent<Health>() != null)
         {
             rayhit.collider.gameObject.GetComponent<Health>().TakeDamage(10);
@@ -161,12 +210,15 @@ public class player : MonoBehaviour
         if (rayhit.distance > 0)
         {
             dist = rayhit.distance;
+            pos = rayhit.point;
         }
         else
         {
             dist = distance;
+            pos = bulletexit.transform.position + (bulletexit.transform.right * dist) * transform.localScale.x;
         }
-        bulletexit.GetComponent<LineRenderer>().SetPosition(1, bulletexit.transform.position + new Vector3(dist * Mathf.Sign(transform.localScale.x), 0));
+        //bulletexit.GetComponent<LineRenderer>().SetPosition(1, bulletexit.transform.position + new Vector3(dist * Mathf.Sign(transform.localScale.x), 0));
+        bulletexit.GetComponent<LineRenderer>().SetPosition(1, pos);
         StartCoroutine(UpdateLineRenderer());
     }
     private IEnumerator UpdateLineRenderer()

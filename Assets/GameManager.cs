@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
     internal float eDamage = 3f;
     internal float eSpeedMod = 3f;
     internal float eHealth = 30;
+    float mod = .01f;
     public GameObject coinTxt;
     public GameObject nightTxt;
     public GameObject counterAttackTxt;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour {
     float respawnSpeedOverride = 2f;
     List<GameObject> Bases;
     Color oldcolor;
+    internal int day = 1;
     float dayDuration = 60f;
     float nightDuration = 60f;
     float dayNightTimer;
@@ -68,9 +70,9 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        eDamage += Time.deltaTime * .001f;
-        eSpeedMod += Time.deltaTime * .001f;
-        eHealth += Time.deltaTime * .001f;
+        eDamage += Time.deltaTime * mod;
+        eSpeedMod += Time.deltaTime * mod;
+        eHealth += Time.deltaTime * mod;
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("main");//restarts level
@@ -127,8 +129,10 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
+            //make daytime
             Camera.main.backgroundColor = oldBG;
             dayNightTimer = dayDuration;
+            day++;
         }
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
