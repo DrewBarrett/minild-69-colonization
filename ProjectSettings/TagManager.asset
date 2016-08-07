@@ -12,6 +12,7 @@ TagManager:
   - Floor
   - AlertHolder
   - MainUI
+  - Object
   layers:
   - Default
   - TransparentFX

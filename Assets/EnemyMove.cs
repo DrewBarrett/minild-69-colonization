@@ -33,18 +33,17 @@ public class EnemyMove : MonoBehaviour
             return;
         }
     }
-    protected bool CheckRayForTargets(RaycastHit2D[] hits)
+    protected RaycastHit2D CheckRayForTargets(RaycastHit2D[] hits)
     {
         foreach (RaycastHit2D hit in hits)
         {
             //Debug.Log(hit.ToString());
             if (hit.transform.gameObject.tag == "Player" || (hit.transform.gameObject.tag == "Wall" && (!hit.transform.gameObject.GetComponent<Health>().Dead && !hit.transform.gameObject.GetComponentInParent<Base>().playerOwned == false)))
             {
-                return true;
-                
+                return hit;
             }
         }
-        return false;
+        return new RaycastHit2D();
     }
     void Update()
     {

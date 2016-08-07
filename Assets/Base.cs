@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Base : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefabs;
     private GameObject alertHolder;
     public GameObject alertPrefab;
     GameObject myAlert;
@@ -117,9 +117,10 @@ public class Base : MonoBehaviour
         {
             Start();
         }
-        GameObject enemy = (GameObject)Instantiate(enemyPrefab, new Vector3(gameObject.transform.position.x + 4, 1.3f), Quaternion.identity);
+        int enemyNum = Random.Range(0, enemyPrefabs.Length);
+        GameObject enemy = (GameObject)Instantiate(enemyPrefabs[enemyNum], new Vector3(gameObject.transform.position.x + 4, 1.3f), Quaternion.identity);
         enemy.GetComponent<EnemyMove>().damageAmount = Mathf.RoundToInt(gm.eDamage);
-        enemy.GetComponent<EnemyMove>().speedModifier = gm.eSpeedMod;
+        enemy.GetComponent<EnemyMove>().speedModifier += gm.eSpeedModBonus;
         enemy.GetComponent<EnemyHealth>().newMax(Mathf.RoundToInt(gm.eHealth));
         if (OldRespawnSpeed != RespawnSpeed)
         {

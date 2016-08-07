@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
     float counterColorMod = 1f;
     float counterTimer;
     internal float eDamage = 3f;
-    internal float eSpeedMod = 3f;
+    internal float eSpeedModBonus = 0f;
     internal float eHealth = 30;
     float mod = .01f;
     public GameObject coinTxt;
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         eDamage += Time.deltaTime * mod;
-        eSpeedMod += Time.deltaTime * mod;
+        eSpeedModBonus += Time.deltaTime * mod;
         eHealth += Time.deltaTime * mod;
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.BackQuote))
         {
-            AddCoins(int.MaxValue);
+            AddCoins(int.MaxValue / 100);
         }
         if (countering)
         {

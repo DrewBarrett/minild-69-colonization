@@ -57,7 +57,7 @@ public class EnemyMoveWalk : EnemyMove {
             return;
         }
         RaycastHit2D[] hits = Physics2D.RaycastAll(rayCastStart.transform.position, new Vector2(val * -1, 0), 5f);
-        if (CheckRayForTargets(hits))
+        if (CheckRayForTargets(hits).collider)
         {
             Jump(val * -1);
         }
